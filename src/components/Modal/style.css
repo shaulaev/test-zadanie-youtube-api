@@ -1,0 +1,36 @@
+.modal {
+  width: 100%;
+  height: 20%;
+  opacity: 0;
+  transition: 0.5s;
+  position: absolute;
+  right: 50px;
+  bottom: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.modal__active{
+  width: 100%;
+  height: 20%;
+  right: 50px;
+  bottom: 300px;
+  position: absolute;
+  opacity: 1;
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+}
+
+.modal__block {
+  margin-top: 20px;
+  width: 510px;
+  border-radius: 20px;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+} 

@@ -1,0 +1,109 @@
+body {
+  background-color: #F1F1F1;
+}
+
+.main {
+  width: 100%;
+}
+
+.content {
+  width: 1040px;
+  margin: auto;
+}
+
+.content__titles {
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+.one__title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content__titles a {
+  text-decoration: none;
+  color: black;
+}
+
+.content__one__title {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content__underline {
+  height: 1px;
+  width: 2000px;
+  position: absolute;
+  right: 100px;
+  background-color:#F1F1F1;
+}
+
+.content__change {
+  width: 18px;
+  height: 18px;
+  margin-top: 10px;
+  background: url("../../assets/pencil.svg");
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.request__input {
+  width: 480px;
+  height: 50px;
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid rgba(23, 23, 25, 0.1);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.range {
+  width: 310px;
+}
+
+.range__count {
+  width: 100px;
+  height: 50px;
+  padding-top: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(23, 23, 25, 0.2);
+}
+
+.range__flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.non__save {
+  width: 210px;
+  height: 50px;
+  font-size: 20px;
+  color: #1390E5;
+  border: 1px solid #1390E5;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: white;
+  margin: 30px 10px 10px 10px;
+}
+
+.save {
+  width: 210px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  background-color: #1390E5;
+  border: none;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+
+
+h5{
+  text-align: start;
+}

@@ -1,49 +1,61 @@
-import {useState} from "react"
-import "./style.css"
-import { signIn } from "../../redux/users/usersReducer"
-import { useDispatch } from "react-redux"
+import { useState } from "react";
+import "./style.css";
+import { signIn } from "../../redux/users/usersReducer";
+import { useDispatch } from "react-redux";
 
 function LoginForm() {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-
-  const [isActive, setIsActive] = useState(false)
-  const [login, setLogin] = useState("")
-  const [password, setPassword] = useState("")
-
+  const [isActive, setIsActive] = useState(false);
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleShowPassword = () => {
-    setIsActive(!isActive)
-  }
+    setIsActive(!isActive);
+  };
 
   const handleChangeLogin = (e) => {
-    setLogin(e.target.value)
-  }
+    setLogin(e.target.value);
+  };
 
   const handleChangePassword = (e) => {
-    setPassword(e.target.value)
-  }
+    setPassword(e.target.value);
+  };
 
   const handleLogin = () => {
-    dispatch(signIn({login, password}))
-  }
+    dispatch(signIn({ login, password }));
+  };
 
   return (
     <>
-    <div className="login__form">
+      <div className="login__form">
         <h5>Логин</h5>
-        <input type="text" onChange={(e) => handleChangeLogin(e)} value={login}/>
-        <h5>Пароль</h5>
-        <input type={isActive ? "text" : "password"} className="left"
-        onChange={(e) => handleChangePassword(e)} value={password}
+        <input
+          type="text"
+          onChange={(e) => handleChangeLogin(e)}
+          value={login}
         />
-        <button className={isActive ? "login__password__control view" :"login__password__control"} 
-        onClick={handleShowPassword}>
-        </button>
-    </div>
-    <button className="login__submit" onClick={handleLogin}>Войти</button>
-  </>
-  )
+        <h5>Пароль</h5>
+        <input
+          type={isActive ? "text" : "password"}
+          className="left"
+          onChange={(e) => handleChangePassword(e)}
+          value={password}
+        />
+        <button
+          className={
+            isActive
+              ? "login__password__control view"
+              : "login__password__control"
+          }
+          onClick={handleShowPassword}
+        ></button>
+      </div>
+      <button className="login__submit" onClick={handleLogin}>
+        Войти
+      </button>
+    </>
+  );
 }
 
-export default LoginForm
+export default LoginForm;

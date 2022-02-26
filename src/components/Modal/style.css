@@ -12,7 +12,7 @@
   pointer-events: none;
 }
 
-.modal__active{
+.modal__active {
   width: 100%;
   height: 20%;
   right: 50px;
@@ -33,4 +33,4 @@
   background-color: white;
   padding: 20px;
   text-align: center;
-} 
+}

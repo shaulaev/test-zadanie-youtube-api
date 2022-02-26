@@ -22,7 +22,7 @@
 
 .main__form input:focus {
   outline: none;
-  border: 1px solid #1390E5;
+  border: 1px solid #1390e5;
 }
 
 .main__form__findbtn {
@@ -32,7 +32,7 @@
   font-size: 20px;
   border-radius: 0px 10px 10px 0px;
   border: none;
-  background-color: #1390E5;
+  background-color: #1390e5;
 }
 
 .main__form__favorite {
@@ -99,7 +99,7 @@
 
 .one__video img {
   width: 250px;
-  height: 150px
+  height: 150px;
 }
 
 .videos {
@@ -147,7 +147,7 @@
   margin: 8px;
   border-radius: 50%;
   border: 6px solid #fff;
-  border-color: #1390E5 transparent #fff transparent;
+  border-color: #1390e5 transparent #fff transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {
@@ -213,7 +213,6 @@
   text-align: start;
   padding-bottom: 10%;
 }
-
 
 .test__video {
   display: flex;

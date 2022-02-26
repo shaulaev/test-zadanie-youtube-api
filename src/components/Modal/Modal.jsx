@@ -1,14 +1,14 @@
-import "./style.css"
+import "./style.css";
 
-function Modal({modal, setModal, children}) {
-
+function Modal({ modal, setModal, children }) {
   return (
-      <div className={modal ? "modal__active" : "modal"} onClick={() => setModal(!modal)}>
-        <div className="modal__block">
-          {children}
-        </div>
-      </div>
-  )
+    <div
+      className={modal ? "modal__active" : "modal"}
+      onClick={() => setModal(!modal)}
+    >
+      <div className="modal__block">{children}</div>
+    </div>
+  );
 }
 
-export default Modal
+export default Modal;

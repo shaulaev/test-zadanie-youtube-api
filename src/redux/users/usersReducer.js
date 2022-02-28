@@ -16,13 +16,26 @@ const initialState = {
       videosCount: 5
     }
   ],
+  changedFavorite: null,
+  token: null
 }
 
 export const usersReducer = (state = initialState, action) => {
   switch(action.type){
     case "login":
-      return state
-
+      return {...state,
+      token: action.payload
+      }
+    case "delete/token": 
+      return {
+        ...state,
+        token: null
+      }
+    case "add/toChanged/token":
+      return {
+        ...state,
+        changedFavorite: action.payload
+      }
     case "user/favorite/":
       return {
         ...state,
@@ -34,15 +47,17 @@ export const usersReducer = (state = initialState, action) => {
   }
 }
 
-export const signIn = async (payload) => {
-  const goodLogin = initialState.users.find((item) =>
-  item.login === payload.login 
-    && 
-  item.password === payload.password)
-  if(!!goodLogin) {
-    await localStorage.setItem("token", payload.login)
-    window.location.reload()
-  }else{
-    alert("Неверный логин или пароль.")
+export const signIn = (argument) => {
+  return (dispatch) => {
+    const goodLogin = initialState.users.find((item) =>
+    item.login === argument.login 
+      && 
+    item.password === argument.password)
+    if(!!goodLogin) {
+       localStorage.setItem("token", argument.login)
+       dispatch({type: "login", payload: argument.login})
+    }else{
+      alert("Неверный логин или пароль.")
+   }
   }
 }

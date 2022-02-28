@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./style.css";
 import { signIn } from "../../redux/users/usersReducer";
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -51,9 +52,11 @@ function LoginForm() {
           onClick={handleShowPassword}
         ></button>
       </div>
-      <button className="login__submit" onClick={handleLogin}>
-        Войти
-      </button>
+      <NavLink to="/main">
+        <button className="login__submit" onClick={handleLogin}>
+          Войти
+        </button>
+      </NavLink>
     </>
   );
 }

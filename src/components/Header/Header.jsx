@@ -1,20 +1,15 @@
 import "./style.css";
-import logo from "../assets/logo.svg";
+import logo from "../../assets/logo.svg";
 import { NavLink, Outlet } from "react-router-dom";
-import { createBrowserHistory } from "history";
+import { useDispatch } from "react-redux";
 
 function Header() {
-  const storage = localStorage.token;
-  const history = createBrowserHistory();
+  const dispatch = useDispatch();
 
   const handleExit = () => {
+    dispatch("delete/token");
     localStorage.removeItem("token");
   };
-
-  if (!storage) {
-    history.push("/");
-    window.location.reload();
-  }
 
   return (
     <>

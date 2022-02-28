@@ -278,11 +278,14 @@
 
 @media (max-width: 1000px) {
   .videos {
-    margin: 30px 80px 400px 30px;
+    margin: 100px 80px 0px 0px;
+    width: 720px;
+    font-size: 20px;
   }
   .main__videos {
     margin-right: 500px;
   }
+
   .video__info__grid {
     margin-left: 300px;
   }
@@ -296,5 +299,17 @@
   .one__video img {
     width: 650px;
     height: 500px;
+  }
+}
+
+@media (max-width: 700px) {
+  .main__form input {
+    width: 330px;
+  }
+  .videos {
+    width: 200px;
+  }
+  .video {
+    width: 50%;
   }
 }

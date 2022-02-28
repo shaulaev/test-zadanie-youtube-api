@@ -23,14 +23,18 @@ function Favorite() {
 
   const handleChange = (index) => {
     setModal(!modal);
+    dispatch({ type: "add/toChanged/token", payload: index });
   };
+
+  const changedId = useSelector((state) => state.users.changedFavorite);
 
   const handleSave = (e) => {
     e.stopPropagation();
     dispatch({
       type: "change/favorite",
-      payload: { request: request, videosCount: rangeValue },
+      payload: { request: request, videosCount: rangeValue, id: changedId },
     });
+    console.log(changedId);
   };
 
   return (
@@ -57,57 +61,60 @@ function Favorite() {
                     onClick={() => handleChange(index)}
                   ></div>
                   <div className="content__underline"></div>
+                  <Modal modal={modal} setModal={setModal}>
+                    <h3>Сохранить запрос</h3>
+                    <div className="request">
+                      <h5>Запрос</h5>
+                      <input
+                        className="request__input"
+                        value={request}
+                        onChange={(e) => setRequest(e.target.value)}
+                        type="text"
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                      <h5>Название</h5>
+                      <input
+                        className="request__input"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        type="text"
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                      <h5>Сортировать по</h5>
+                      <input
+                        className="request__input"
+                        value={sort}
+                        onChange={(e) => setSort(e.target.value)}
+                        type="text"
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                      <h5>Максимальное кол-во</h5>
+                      <div className="range__flex">
+                        <input
+                          className="range"
+                          type="range"
+                          value={rangeValue}
+                          onChange={(e) => setRangeValue(e.target.value)}
+                          id="range"
+                          min="0"
+                          max="50"
+                          onClick={(e) => e.stopPropagation()}
+                        />
+                        <div className="range__count">{rangeValue}</div>
+                      </div>
+                      <button className="non__save">Не сохранять</button>
+                      <button
+                        className="save"
+                        onClick={(e) => handleSave(e, index)}
+                      >
+                        Сохранить
+                      </button>
+                    </div>
+                  </Modal>
                 </div>
               );
             })}
         </div>
-        <Modal modal={modal} setModal={setModal}>
-          <h3>Сохранить запрос</h3>
-          <div className="request">
-            <h5>Запрос</h5>
-            <input
-              className="request__input"
-              value={request}
-              onChange={(e) => setRequest(e.target.value)}
-              type="text"
-              onClick={(e) => e.stopPropagation()}
-            />
-            <h5>Название</h5>
-            <input
-              className="request__input"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              type="text"
-              onClick={(e) => e.stopPropagation()}
-            />
-            <h5>Сортировать по</h5>
-            <input
-              className="request__input"
-              value={sort}
-              onChange={(e) => setSort(e.target.value)}
-              type="text"
-              onClick={(e) => e.stopPropagation()}
-            />
-            <h5>Максимальное кол-во</h5>
-            <div className="range__flex">
-              <input
-                className="range"
-                type="range"
-                value={rangeValue}
-                onChange={(e) => setRangeValue(e.target.value)}
-                id="range"
-                min="0"
-                max="50"
-                onClick={(e) => e.stopPropagation()}
-              />
-              <div className="range__count">{rangeValue}</div>
-            </div>
-            <button className="non__save">Не сохранять</button>
-            <button className="save" onClick={(e) => handleSave(e)}>
-              Сохранить
-            </button>
-          </div>
-        </Modal>
         <div className={modal ? "black__on" : "black"}></div>
       </div>
     </div>
